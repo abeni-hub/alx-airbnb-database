@@ -1,4 +1,4 @@
-#Before Indexing
+# Before Indexing
 | -> Table scan on avg_ratings_table  (cost=2.5..2.5 rows=0) (actual time=1..1 rows=1 loops=1)
     -> Materialize  (cost=0..0 rows=0) (actual time=1..1 rows=1 loops=1)
         -> Filter: (property_rating > 4.0)  (actual time=0.0668..0.0677 rows=1 loops=1)
