@@ -1,1 +1,1 @@
-
+#SQL joins practice
