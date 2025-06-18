@@ -1,15 +1,18 @@
--- 1. INNER JOIN: Retrieve all bookings with their respective users
-SELECT b.*, u.*
-FROM bookings b
-INNER JOIN users u ON b.user_id = u.id;
-
--- 2. LEFT JOIN: Retrieve all properties and their reviews (including properties with no reviews)
-SELECT p.*, r.*
-FROM properties p
-LEFT JOIN reviews r ON p.id = r.property_id;
-
--- 3. FULL OUTER JOIN: Retrieve all users and all bookings
--- (including users without bookings and bookings without users)
-SELECT u.*, b.*
-FROM users u
-FULL OUTER JOIN bookings b ON u.id = b.user_id;
+SELECT *
+FROM bookings
+  INNER JOIN users ON bookings.user_id = users.user_id;
+SELECT *
+FROM properties
+  LEFT JOIN reviews ON properties.property_id = reviews.property_id
+ORDER BY bookings.start_date;
+-- SELECT *
+-- FROM bookings
+--   FULL OUTER JOIN users ON bookings.user_id = users.user_id;
+SELECT *
+FROM bookings
+  LEFT JOIN users ON bookings.user_id = users.user_id
+UNION
+SELECT *
+FROM bookings
+  RIGHT JOIN users ON bookings.user_id = users.user_id
+ORDER BY bookings.start_date;
